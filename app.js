@@ -38,7 +38,7 @@ mongoose.connection.once('open', function() {
 
 app.get('/', function(req, res){
     Greeting.findOne(function (err, greeting) {
-        res.send(greeting['sentence']);
+        res.send(greeting.sentence);
     });
 });
 
