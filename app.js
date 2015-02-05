@@ -22,14 +22,15 @@ var standardGreeting = 'Hello World!';
 
 var greetingSchema = mongoose.Schema({   sentence: String });
 var Greeting= mongoose.model('Greeting', greetingSchema);
+var greeting;
 
 db = mongoose.connect(dbPath);
 
 mongoose.connection.once('open', function() {
-    var greeting;
     Greeting.find( function(err, greetings){
         if( !greetings ){
             greeting = new Greeting({ 'sentence': standardGreeting });
+                  console.log("Greeting = ", greeting.sentence);
             greeting.save();
         }
     });
