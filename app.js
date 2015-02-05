@@ -28,9 +28,9 @@ db = mongoose.connect(dbPath);
 
 mongoose.connection.once('open', function() {
     Greeting.find( function(err, greetings){
-        if( !greetings ){
+        if( !greeting ){
             greeting = new Greeting({ 'sentence': standardGreeting });
-                  console.log("Greeting = ", greeting.sentence);
+            console.log("Greeting = ", greeting.sentence);
             greeting.save();
         }
     });
