@@ -29,7 +29,7 @@ mongoose.connection.once('open', function() {
     var greeting;
     Greeting.find( function(err, greetings){
         if( !greetings ){
-            greeting = new Greeting({ sentence: standardGreeting });
+            greeting = new Greeting({ 'sentence': standardGreeting });
             greeting.save();
         }
     });
@@ -37,7 +37,7 @@ mongoose.connection.once('open', function() {
 
 app.get('/', function(req, res){
     Greeting.findOne(function (err, greeting) {
-        res.send(greeting.sentence);
+        res.send(greeting['sentence']);
     });
 });
 
